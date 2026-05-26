@@ -6,7 +6,7 @@
 
 **One Paystack webhook URL. Unlimited downstream services.**
 
-A Cloudflare Worker that receives Paystack events and broadcasts them to every registered endpoint simultaneously — raw, unmodified, with the original signature forwarded so each service can verify independently.
+A Cloudflare Worker that receives Paystack events and broadcasts them to every registered endpoint simultaneously — raw, unmodified, with the original signature forwarded so  each service can verify independently.
 
 [![Deploy to Cloudflare](https://img.shields.io/badge/Deploy-Cloudflare_Workers-F38020?style=flat&logo=cloudflare&logoColor=white)](https://workers.cloudflare.com)
 [![License](https://img.shields.io/badge/License-MIT-6366f1?style=flat)](LICENSE)
