@@ -231,7 +231,7 @@ svg{display:block;flex-shrink:0}
 <div id="toast-container"></div>
 
 <!-- ─── Login screen ────────────────────────────── -->
-<div id="login-screen" class="hidden">
+<div id="login-screen">
   <div class="login-card">
     <div class="login-logo">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
@@ -476,17 +476,24 @@ const BASE = window.location.origin;
 window.addEventListener('DOMContentLoaded', async () => {
   document.getElementById('live-url-text').textContent = BASE + '/hook/live';
   document.getElementById('test-url-text').textContent = BASE + '/hook/test';
-  const res = await fetch('/api/me');
-  res.ok ? showApp() : showLogin();
+  try {
+    const res = await fetch('/api/me');
+    if (res.ok) showApp();
+    // else: login-screen is visible by default — nothing to do
+  } catch(e) {
+    // Network error or worker crash — login screen already visible
+    console.error('[mirror] Auth check failed:', e.message);
+  }
 });
 
 function showLogin() {
   document.getElementById('app').classList.add('hidden');
-  document.getElementById('login-screen').classList.remove('hidden');
+  document.getElementById('login-screen').style.display = '';
   setTimeout(() => document.getElementById('login-username').focus(), 100);
 }
 function showApp() {
   document.getElementById('login-screen').classList.add('hidden');
+  document.getElementById('login-screen').style.display = 'none';
   document.getElementById('app').classList.remove('hidden');
   loadAll();
 }
