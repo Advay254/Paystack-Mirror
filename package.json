@@ -1,0 +1,19 @@
+{
+  "name": "paystack-mirror",
+  "version": "1.0.0",
+  "description": "Paystack webhook broadcaster — mirrors all events to N downstream endpoints",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev":       "wrangler dev --local",
+    "deploy":    "wrangler deploy",
+    "tail":      "wrangler tail",
+    "kv:create": "wrangler kv namespace create MIRROR_KV"
+  },
+  "devDependencies": {
+    "wrangler": "^3.0.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

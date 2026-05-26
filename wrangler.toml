@@ -1,0 +1,29 @@
+# wrangler.toml — Paystack Mirror Worker
+#
+# ⚠️  SECRETS — never put these here. Use `wrangler secret put` instead:
+#       wrangler secret put PAYSTACK_LIVE_SECRET
+#       wrangler secret put PAYSTACK_TEST_SECRET
+#       wrangler secret put DASHBOARD_PASSWORD
+#
+# Steps to deploy:
+#   1. npm run kv:create          → copy the id into [[kv_namespaces]] below
+#   2. wrangler secret put ...    → set all three secrets
+#   3. npm run deploy
+
+name               = "paystack-mirror"
+main               = "src/index.js"
+compatibility_date = "2024-09-23"
+
+# ── KV Namespace ──────────────────────────────────────────────
+# Run: wrangler kv namespace create MIRROR_KV
+# Paste the output id below.
+[[kv_namespaces]]
+binding    = "KV"
+id         = "117aaf03aa424d2f8cea89d789dc5fe6"
+# preview_id = "REPLACE_WITH_PREVIEW_KV_ID"   ← uncomment for `wrangler dev`
+
+# ── Non-sensitive vars ────────────────────────────────────────
+# WORKER_BASE_URL is optional — only used for the Secure cookie flag.
+# Set it in the CF dashboard after your first deploy.
+[vars]
+# WORKER_BASE_URL = "https://paystack-mirror.your-subdomain.workers.dev"

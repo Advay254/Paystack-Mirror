@@ -1,0 +1,20 @@
+# .dev.vars.example — copy to .dev.vars for local dev
+# .dev.vars is gitignored — NEVER commit the real file.
+# wrangler dev reads this automatically.
+
+# ── Paystack secret keys ──────────────────────────────────────
+# These are used to verify webhook HMAC-SHA512 signatures.
+# Get them from: Paystack Dashboard → Settings → API Keys & Webhooks
+#
+PAYSTACK_LIVE_SECRET=sk_live_REPLACE_WITH_YOUR_LIVE_SECRET_KEY
+PAYSTACK_TEST_SECRET=sk_test_REPLACE_WITH_YOUR_TEST_SECRET_KEY
+
+# ── Dashboard password ────────────────────────────────────────
+# Set any strong password here. Used to log into the mirror dashboard.
+#
+DASHBOARD_PASSWORD=REPLACE_WITH_A_STRONG_PASSWORD
+
+# ── Optional ──────────────────────────────────────────────────
+# Set after deploying to enable the Secure flag on the session cookie.
+#
+# WORKER_BASE_URL=https://paystack-mirror.your-subdomain.workers.dev
