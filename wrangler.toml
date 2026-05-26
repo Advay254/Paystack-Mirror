@@ -3,6 +3,7 @@
 # ⚠️  SECRETS — never put these here. Use `wrangler secret put` instead:
 #       wrangler secret put PAYSTACK_LIVE_SECRET
 #       wrangler secret put PAYSTACK_TEST_SECRET
+#       wrangler secret put DASHBOARD_USERNAME
 #       wrangler secret put DASHBOARD_PASSWORD
 #
 # Steps to deploy:
